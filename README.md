@@ -19,6 +19,7 @@ To execute migrations inside running container, you can use:
 docker exec symfony-sandbox-php-fpm php bin/console doctrine:migrations:migrate
 ~~~
 
+After adding entities and migrations to your project, you can uncomment the "Run migrations" step in the check.yml file. This step will execute the migrations and verify if they pass or fail.
 ## Sentry
 
 This sandbox use [Sentry](https://www.sentry.io). To be sure the sentry is working correctly, you have to add your info into [sentry.properties](sentry.properties) as well as you have to set up [environment](.env) properties.
@@ -45,3 +46,5 @@ To run tests inside your Docker container, run this command:
 ~~~bash
 docker exec symfony-sandbox-php-fpm check:tests
 ~~~
+
+Once you have added some tests to your project, you can enable the "Check tests" step in the check.yml file by uncommenting it. This step will run the tests and check if they pass or fail.
