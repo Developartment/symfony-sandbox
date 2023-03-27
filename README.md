@@ -19,7 +19,18 @@ To execute migrations inside running container, you can use:
 docker exec symfony-sandbox-php-fpm php bin/console doctrine:migrations:migrate
 ~~~
 
-### Dev tools
+## Sentry
+
+This sandbox use [Sentry](https://www.sentry.io). To be sure the sentry is working correctly, you have to add your info into [sentry.properties](sentry.properties) as well as you have to set up [environment](.env) properties.
+
+### Create sentry.yml
+Create a `sentry.yml` file into the `config/packages/` directory. The content of the file should be like:
+```
+sentry:
+    dsn: "%env(SENTRY_DSN)%"
+```
+
+## Dev tools
 To run tools such as PHPStan, PHPCS and PHPCBF inside running container, run the following commands
 
 ~~~bash
@@ -28,7 +39,7 @@ docker exec symfony-sandbox-php-fpm composer check:cs
 docker exec symfony-sandbox-php-fpm composer check:cs:fix
 ~~~
 
-### Run tests
+## Run tests
 To run tests inside your Docker container, run this command:
 
 ~~~bash

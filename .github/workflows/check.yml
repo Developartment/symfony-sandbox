@@ -50,13 +50,14 @@ jobs:
       - name: "Check types"
         run: composer run-script check:types
 
-      - name: "Run migrations"
-        run: |
-          php bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration --quiet
-          php bin/console doctrine:mapping:info
-          php bin/console doctrine:schema:validate
-        env:
-          DATABASE_URL: "mysql://root:password@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/symfony-sandbox?serverVersion=8.0&charset=utf8"
+####### Uncomment this line after you have added some entities and migrations.
+#      - name: "Run migrations"
+#        run: |
+#          php bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration --quiet
+#          php bin/console doctrine:mapping:info
+#          php bin/console doctrine:schema:validate
+#        env:
+#          DATABASE_URL: "mysql://root:password@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/symfony-sandbox?serverVersion=8.0&charset=utf8"
 
       - name: "Check tests"
         run: composer run-script check:tests
