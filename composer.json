@@ -1,4 +1,6 @@
 {
+    "name": "developartment/symfony-sandbox",
+    "description": "Symfony sandbox",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
