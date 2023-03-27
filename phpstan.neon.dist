@@ -1,0 +1,42 @@
+includes:
+    - ./vendor/phpstan/phpstan-doctrine/extension.neon
+    - ./vendor/phpstan/phpstan-phpunit/extension.neon
+    - ./vendor/phpstan/phpstan-phpunit/rules.neon
+    - ./vendor/phpstan/phpstan-symfony/extension.neon
+    - ./vendor/phpstan/phpstan-webmozart-assert/extension.neon
+    - ./vendor/pepakriz/phpstan-exception-rules/extension.neon
+    - ./vendor/phpstan/phpstan-strict-rules/rules.neon
+
+parametersSchema:
+    root: string()
+
+parameters:
+    level: 8
+    parallel:
+        processTimeout: 1000.0
+    root: %rootDir%/../../..
+    tmpDir: %rootDir%/../../../var/phpstan/
+    doctrine:
+        repositoryClass: 'Doctrine\ORM\EntityRepository'
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    exceptionRules:
+        reportUnusedCheckedThrowsInSubtypes: false
+        checkedExceptions:
+            - App\Exception\RuntimeException
+            - Pepakriz\PHPStanExceptionRules\UnsupportedClassException
+            - Pepakriz\PHPStanExceptionRules\UnsupportedFunctionException
+            - Psr\Http\Client\ClientExceptionInterface
+        methodWhitelist:
+            PHPUnit\Framework\TestCase: '#^(setup|setupbeforeclass|teardown|teardownafterclass|test.*)$#i'
+    excludePaths:
+        - %root%/src/bootstrap.php
+        - %root%/tests/bootstrap.php
+    bootstrapFiles:
+        - %root%/vendor/squizlabs/php_codesniffer/autoload.php
+        - %root%/vendor/squizlabs/php_codesniffer/src/Util/Tokens.php
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        -
+            message: "#^Method App\\\\Entity\\\\BaseEntity\\:\\:getId\\(\\) should return int but returns int\\|null\\.$#"
+            count: 1
+            path: src/Entity/BaseEntity.php
