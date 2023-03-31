@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "324e44bdcc550c8f013b42824ea35a54",
+    "content-hash": "05ca1c2af21f922651d8f7fbc4e8a823",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -1801,6 +1801,93 @@
                 }
             ],
             "time": "2023-02-06T13:46:10+00:00"
+        },
+        {
+            "name": "nette/utils",
+            "version": "v4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/utils.git",
+                "reference": "cacdbf5a91a657ede665c541eda28941d4b09c1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/utils/zipball/cacdbf5a91a657ede665c541eda28941d4b09c1e",
+                "reference": "cacdbf5a91a657ede665c541eda28941d4b09c1e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0 <8.3"
+            },
+            "conflict": {
+                "nette/finder": "<3",
+                "nette/schema": "<1.2.2"
+            },
+            "require-dev": {
+                "jetbrains/phpstorm-attributes": "dev-master",
+                "nette/tester": "^2.4",
+                "phpstan/phpstan": "^1.0",
+                "tracy/tracy": "^2.9"
+            },
+            "suggest": {
+                "ext-gd": "to use Image",
+                "ext-iconv": "to use Strings::webalize(), toAscii(), chr() and reverse()",
+                "ext-intl": "to use Strings::webalize(), toAscii(), normalize() and compare()",
+                "ext-json": "to use Nette\\Utils\\Json",
+                "ext-mbstring": "to use Strings::lower() etc...",
+                "ext-tokenizer": "to use Nette\\Utils\\Reflection::getUseStatements()",
+                "ext-xml": "to use Strings::length() etc. when mbstring is not available"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0-only",
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🛠  Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "array",
+                "core",
+                "datetime",
+                "images",
+                "json",
+                "nette",
+                "paginator",
+                "password",
+                "slugify",
+                "string",
+                "unicode",
+                "utf-8",
+                "utility",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/nette/utils/issues",
+                "source": "https://github.com/nette/utils/tree/v4.0.0"
+            },
+            "time": "2023-02-02T10:41:53+00:00"
         },
         {
             "name": "php-http/client-common",
@@ -6537,16 +6624,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.8",
+            "version": "1.10.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "0166aef76e066f0dd2adc2799bdadfa1635711e9"
+                "reference": "9b13dafe3d66693d20fe5729c3dde1d31bb64703"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/0166aef76e066f0dd2adc2799bdadfa1635711e9",
-                "reference": "0166aef76e066f0dd2adc2799bdadfa1635711e9",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/9b13dafe3d66693d20fe5729c3dde1d31bb64703",
+                "reference": "9b13dafe3d66693d20fe5729c3dde1d31bb64703",
                 "shasum": ""
             },
             "require": {
@@ -6595,7 +6682,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-24T10:28:16+00:00"
+            "time": "2023-03-30T08:58:01+00:00"
         },
         {
             "name": "phpstan/phpstan-doctrine",
@@ -6721,16 +6808,16 @@
         },
         {
             "name": "phpstan/phpstan-strict-rules",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-strict-rules.git",
-                "reference": "b7dd96a5503919a43b3cd06a2dced9d4252492f2"
+                "reference": "b21c03d4f6f3a446e4311155f4be9d65048218e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-strict-rules/zipball/b7dd96a5503919a43b3cd06a2dced9d4252492f2",
-                "reference": "b7dd96a5503919a43b3cd06a2dced9d4252492f2",
+                "url": "https://api.github.com/repos/phpstan/phpstan-strict-rules/zipball/b21c03d4f6f3a446e4311155f4be9d65048218e6",
+                "reference": "b21c03d4f6f3a446e4311155f4be9d65048218e6",
                 "shasum": ""
             },
             "require": {
@@ -6764,28 +6851,28 @@
             "description": "Extra strict and opinionated rules for PHPStan",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-strict-rules/issues",
-                "source": "https://github.com/phpstan/phpstan-strict-rules/tree/1.5.0"
+                "source": "https://github.com/phpstan/phpstan-strict-rules/tree/1.5.1"
             },
-            "time": "2023-02-21T10:17:10+00:00"
+            "time": "2023-03-29T14:47:40+00:00"
         },
         {
             "name": "phpstan/phpstan-symfony",
-            "version": "1.2.23",
+            "version": "1.2.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-symfony.git",
-                "reference": "8a8d0538ca943b20beda7e9799e14fb3683262d4"
+                "reference": "db81b1861aac7cc2e66115cb33b4d1ea2a73d096"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-symfony/zipball/8a8d0538ca943b20beda7e9799e14fb3683262d4",
-                "reference": "8a8d0538ca943b20beda7e9799e14fb3683262d4",
+                "url": "https://api.github.com/repos/phpstan/phpstan-symfony/zipball/db81b1861aac7cc2e66115cb33b4d1ea2a73d096",
+                "reference": "db81b1861aac7cc2e66115cb33b4d1ea2a73d096",
                 "shasum": ""
             },
             "require": {
                 "ext-simplexml": "*",
                 "php": "^7.2 || ^8.0",
-                "phpstan/phpstan": "^1.9.4"
+                "phpstan/phpstan": "^1.9.18"
             },
             "conflict": {
                 "symfony/framework-bundle": "<3.0"
@@ -6795,7 +6882,7 @@
                 "php-parallel-lint/php-parallel-lint": "^1.2",
                 "phpstan/phpstan-phpunit": "^1.0",
                 "phpstan/phpstan-strict-rules": "^1.0",
-                "phpunit/phpunit": "^9.5",
+                "phpunit/phpunit": "^8.5.29 || ^9.5",
                 "psr/container": "1.0 || 1.1.1",
                 "symfony/config": "^5.4 || ^6.1",
                 "symfony/console": "^5.4 || ^6.1",
@@ -6835,9 +6922,9 @@
             "description": "Symfony Framework extensions and rules for PHPStan",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-symfony/issues",
-                "source": "https://github.com/phpstan/phpstan-symfony/tree/1.2.23"
+                "source": "https://github.com/phpstan/phpstan-symfony/tree/1.2.24"
             },
-            "time": "2023-02-06T10:42:02+00:00"
+            "time": "2023-03-30T08:38:10+00:00"
         },
         {
             "name": "phpstan/phpstan-webmozart-assert",
@@ -7210,16 +7297,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.0.18",
+            "version": "10.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "582563ed2edc62d1455cdbe00ea49fe09428eef3"
+                "reference": "20c23e85c86e5c06d63538ba464e8054f4744e62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/582563ed2edc62d1455cdbe00ea49fe09428eef3",
-                "reference": "582563ed2edc62d1455cdbe00ea49fe09428eef3",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/20c23e85c86e5c06d63538ba464e8054f4744e62",
+                "reference": "20c23e85c86e5c06d63538ba464e8054f4744e62",
                 "shasum": ""
             },
             "require": {
@@ -7291,7 +7378,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.0.18"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.0.19"
             },
             "funding": [
                 {
@@ -7307,7 +7394,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-22T06:15:31+00:00"
+            "time": "2023-03-27T11:46:33+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -8220,16 +8307,16 @@
         },
         {
             "name": "slevomat/coding-standard",
-            "version": "8.9.0",
+            "version": "8.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/slevomat/coding-standard.git",
-                "reference": "8f11e0f5ff984d6862bb9d83aa513dc05a1773ef"
+                "reference": "3d4fe0c803ae15829ef72d90d3d4eee3dd9f79b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/8f11e0f5ff984d6862bb9d83aa513dc05a1773ef",
-                "reference": "8f11e0f5ff984d6862bb9d83aa513dc05a1773ef",
+                "url": "https://api.github.com/repos/slevomat/coding-standard/zipball/3d4fe0c803ae15829ef72d90d3d4eee3dd9f79b2",
+                "reference": "3d4fe0c803ae15829ef72d90d3d4eee3dd9f79b2",
                 "shasum": ""
             },
             "require": {
@@ -8269,7 +8356,7 @@
             ],
             "support": {
                 "issues": "https://github.com/slevomat/coding-standard/issues",
-                "source": "https://github.com/slevomat/coding-standard/tree/8.9.0"
+                "source": "https://github.com/slevomat/coding-standard/tree/8.9.1"
             },
             "funding": [
                 {
@@ -8281,7 +8368,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-25T15:52:37+00:00"
+            "time": "2023-03-27T11:00:16+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -8490,7 +8577,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.1",
+        "php": "8.2.*",
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
