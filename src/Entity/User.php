@@ -5,25 +5,34 @@ declare(strict_types = 1);
 namespace App\Entity;
 
 use DateTimeImmutable;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 class User extends BaseEntity
 {
 
-    #[ORM\Column(name: 'email', type: Types::STRING, unique: true, nullable: false)]
+    /**
+     * @ORM\Column(name="email", type="string", length=255, unique=true, nullable=false)
+     */
     private string $email;
 
-    #[ORM\Column(name: 'first_name', type: Types::STRING, nullable: true)]
+    /**
+     * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
+     */
     private ?string $firstName = null;
 
-    #[ORM\Column(name: 'lastName', type: Types::STRING, nullable: true)]
+    /**
+     * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
+     */
     private ?string $lastName = null;
 
-    #[ORM\Column(name: 'password', type: Types::STRING, nullable: false)]
+    /**
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
+     */
     private string $password;
 
-    #[ORM\Column(name: 'created_at', type: Types::DATE_IMMUTABLE, nullable: false)]
+    /**
+     * @ORM\Column(name="created_at", type="date_immutable", nullable=false)
+     */
     private DateTimeImmutable $createdAt;
 
     public function __construct()
