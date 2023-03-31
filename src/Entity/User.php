@@ -7,7 +7,6 @@ namespace App\Entity;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * @ORM\Entity()
  */
