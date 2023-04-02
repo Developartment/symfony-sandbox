@@ -5,7 +5,8 @@ declare(strict_types = 1);
 namespace App\Tests\Entity;
 
 use App\Entity\User;
-use PHPUnit\Framework\TestCase;
+use App\Tests\TestCase;
+
 
 class UserTest extends TestCase
 {

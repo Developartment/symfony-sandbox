@@ -25,6 +25,7 @@
         "symfony/yaml": "6.2.*"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "pepakriz/phpstan-exception-rules": "^0.12.0",
         "phpstan/phpstan-doctrine": "^1.3",
         "phpstan/phpstan-phpunit": "^1.3",
