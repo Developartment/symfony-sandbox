@@ -20,7 +20,9 @@ jobs:
         env:
           MYSQL_ALLOW_EMPTY_PASSWORD: false
           MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: symfony-sandbox
+          MYSQL_DATABASE: |
+            symfony-sandbox
+            symfony-sandbox_test
         ports:
           - 3306/tcp
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -63,7 +65,9 @@ jobs:
           DATABASE_URL: "mysql://root:password@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/symfony-sandbox?serverVersion=8.0&charset=utf8"
 
       - name: "Prepare test database"
-        run: ./bin/generate-test-db
+        run: |
+          chmod +x ${GITHUB_WORKSPACE}/bin/generate-test-db.sh
+          ${GITHUB_WORKSPACE}/bin/generate-test-db.sh
 
       - name: "Check tests"
         run: composer run-script check:tests
