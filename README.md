@@ -41,6 +41,10 @@ docker exec symfony-sandbox-php-fpm composer check:cs:fix
 ~~~
 
 ## Run tests
+Before you run tests, create test database by running this script:
+~~~bash
+docker exec symfony-sandbox-php-fpm ./bin/generate-test-db.sh
+~~~
 To run tests inside your Docker container, run this command:
 
 ~~~bash
