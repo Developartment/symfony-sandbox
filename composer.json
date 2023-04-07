@@ -79,7 +79,7 @@
         "check:cs": "php vendor/bin/phpcs",
         "check:cs:fix": "php vendor/bin/phpcbf",
         "check:types": "php -d memory_limit=2G vendor/bin/phpstan analyse --level max src migrations tests",
-        "check:tests": "php vendor/bin/phpunit tests -v --coverage-text --colors=always --stderr --stop-on-failure"
+        "check:tests": "php vendor/bin/phpunit tests -v --colors=always --stderr --stop-on-failure"
     },
     "conflict": {
         "symfony/symfony": "*"

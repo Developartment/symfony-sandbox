@@ -9,14 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
 abstract class BaseEntity
 {
 
-    /**
-     * @ORM\Id()
-     * @ORM\Column(type="integer", nullable=false)
-     * @ORM\GeneratedValue()
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
     protected ?int $id = null;
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
