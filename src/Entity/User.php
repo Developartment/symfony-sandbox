@@ -7,26 +7,27 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\Entity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
-#[ORM\Entity(repositoryClass: UserRepository::class)]
+#[Entity(repositoryClass: UserRepository::class)]
 class User extends BaseEntity implements PasswordAuthenticatedUserInterface
 {
 
-    #[ORM\Column(name: 'email', type: Types::STRING, unique: true, nullable: false)]
+    #[Column(name: 'email', type: Types::STRING, unique: true, nullable: false)]
     private string $email;
 
-    #[ORM\Column(name: 'first_name', type: Types::STRING, nullable: true)]
+    #[Column(name: 'first_name', type: Types::STRING, nullable: true)]
     private ?string $firstName = null;
 
-    #[ORM\Column(name: 'last_name', type: Types::STRING, nullable: true)]
+    #[Column(name: 'last_name', type: Types::STRING, nullable: true)]
     private ?string $lastName = null;
 
-    #[ORM\Column(name: 'password', type: Types::STRING, nullable: false)]
+    #[Column(name: 'password', type: Types::STRING, nullable: false)]
     private string $password;
 
-    #[ORM\Column(name: 'created_at', type: Types::DATE_IMMUTABLE, nullable: false)]
+    #[Column(name: 'created_at', type: Types::DATE_IMMUTABLE, nullable: false)]
     private DateTimeImmutable $createdAt;
 
     public function __construct()
