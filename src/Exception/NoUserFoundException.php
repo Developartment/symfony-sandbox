@@ -9,7 +9,7 @@ class NoUserFoundException extends RuntimeException
 
     public static function getById(int $id): self
     {
-        return new self("No store #{$id} found.");
+        return new self("No user #{$id} found.");
     }
 
 }
