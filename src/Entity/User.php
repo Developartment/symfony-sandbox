@@ -30,26 +30,15 @@ class User extends BaseEntity implements PasswordAuthenticatedUserInterface
     #[Column(name: 'created_at', type: Types::DATE_IMMUTABLE, nullable: false)]
     private DateTimeImmutable $createdAt;
 
-    public function __construct()
+    public function __construct(string $email)
     {
+        $this->email = $email;
         $this->createdAt = new DateTimeImmutable();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     public function getEmail(): string
     {
         return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
     }
 
     public function getFirstName(): ?string

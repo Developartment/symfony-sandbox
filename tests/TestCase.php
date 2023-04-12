@@ -62,7 +62,6 @@ class TestCase extends WebTestCase
     {
         parent::tearDown();
 
-        // doing this is recommended to avoid memory leaks
         $this->getEntityManager()->close();
     }
 

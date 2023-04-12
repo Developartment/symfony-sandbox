@@ -22,14 +22,15 @@ class UserTest extends TestCase
         $passwordHasher = new UserPasswordHasher($passwordHasherFactory);
         $entityManager = $this->getEntityManager();
 
-        $user = new User();
+        $user = new User(
+            'johndoe@example.com',
+        );
         $hashedPassword = $passwordHasher->hashPassword($user, 'plain_password');
-        $user->setEmail('johndoe@example.com');
-        $user->setPassword($hashedPassword);
-        $user->setCreatedAt(new DateTimeImmutable());
-
-        $entityManager->persist($user);
-        $entityManager->flush();
+        $entityManager->wrapInTransaction(static function ($em) use ($user, $hashedPassword): void {
+            $user->setPassword($hashedPassword);
+            $user->setCreatedAt(new DateTimeImmutable());
+            $em->persist($user);
+        });
 
         self::assertEquals('johndoe@example.com', $user->getEmail());
 		$foundByEmail = $this->getEntityManager()->getRepository(User::class)->findBy(['email' => 'johndoe@example.com']);
