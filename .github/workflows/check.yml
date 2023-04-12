@@ -1,0 +1,70 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: false
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: symfony-sandbox
+        ports:
+          - 3306/tcp
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2.0.0
+
+      - name: "Install PHP"
+        uses: shivammathur/setup-php@v2
+        with:
+          coverage: "none"
+          php-version: "8.2"
+          extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, mysql
+
+      - name: "Start MySQL service"
+        run: sudo /etc/init.d/mysql start
+
+      - name: "Validate composer"
+        run: composer validate
+
+      - name: "Install dependencies"
+        run: composer install --no-interaction --no-progress --no-suggest --prefer-dist
+
+      - name: "Cache warm up"
+        run: php bin/console cache:warmup --env=test
+
+      - name: "Check code style"
+        run: composer run-script check:cs
+
+      - name: "Check types"
+        run: composer run-script check:types
+
+      - name: "Run migrations"
+        run: |
+          php bin/console doctrine:migrations:migrate --no-interaction --allow-no-migration --quiet
+          php bin/console doctrine:mapping:info
+          php bin/console doctrine:schema:validate
+          php bin/console doctrine:database:create --env=test
+          php bin/console doctrine:migrations:migrate -n --env=test --no-interaction --allow-no-migration --quiet
+        env:
+          DATABASE_URL: "mysql://root:password@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/symfony-sandbox?serverVersion=8.0&charset=utf8"
+
+      - name: "Check tests"
+        run: composer run-script check:tests
+        env:
+          DATABASE_URL: "mysql://root:password@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/symfony-sandbox?serverVersion=8.0&charset=utf8"
