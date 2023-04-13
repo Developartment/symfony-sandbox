@@ -35,20 +35,20 @@ sentry:
 To run tools such as PHPStan, PHPCS and PHPCBF inside running container, run the following commands
 
 ~~~bash
-docker exec symfony-sandbox-php-fpm check:types
-docker exec symfony-sandbox-php-fpm composer check:cs
-docker exec symfony-sandbox-php-fpm composer check:cs:fix
+docker-compose exec php-fpm check:types
+docker-compose exec php-fpm composer check:cs
+docker-compose exec php-fpm composer check:cs:fix
 ~~~
 
 ## Run tests
 Before you run tests, create test database by running this script:
 ~~~bash
-docker exec symfony-sandbox-php-fpm ./bin/generate-test-db.sh
+docker-compose exec php-fpm ./bin/generate-test-db.sh
 ~~~
 To run tests inside your Docker container, run this command:
 
 ~~~bash
-docker exec symfony-sandbox-php-fpm check:tests
+docker-compose exec php-fpm check:tests
 ~~~
 
 Once you have added some tests to your project, you can enable the "Check tests" step in the check.yml file by uncommenting it. This step will run the tests and check if they pass or fail.

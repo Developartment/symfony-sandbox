@@ -6,7 +6,6 @@ namespace App\Tests\Entity;
 
 use App\Entity\User;
 use App\Tests\TestCase;
-use DateTimeImmutable;
 use Symfony\Component\PasswordHasher\Hasher\PasswordHasherFactory;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasher;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -28,7 +27,6 @@ class UserTest extends TestCase
         $hashedPassword = $passwordHasher->hashPassword($user, 'plain_password');
         $entityManager->wrapInTransaction(static function ($em) use ($user, $hashedPassword): void {
             $user->setPassword($hashedPassword);
-            $user->setCreatedAt(new DateTimeImmutable());
             $em->persist($user);
         });
 

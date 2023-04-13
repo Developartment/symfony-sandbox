@@ -2,7 +2,7 @@
     "name": "developartment/symfony-sandbox",
     "description": "Symfony sandbox",
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
