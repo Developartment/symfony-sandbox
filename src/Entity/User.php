@@ -46,11 +46,9 @@ class User extends BaseEntity implements PasswordAuthenticatedUserInterface
         return $this->firstName;
     }
 
-    public function setFirstName(?string $firstName): self
+    public function setFirstName(string $firstName): void
     {
         $this->firstName = $firstName;
-
-        return $this;
     }
 
     public function getLastName(): ?string
@@ -58,22 +56,14 @@ class User extends BaseEntity implements PasswordAuthenticatedUserInterface
         return $this->lastName;
     }
 
-    public function setLastName(?string $lastName): self
+    public function setLastName(string $lastName): void
     {
         $this->lastName = $lastName;
-
-        return $this;
     }
 
     public function getCreatedAt(): DateTimeImmutable
     {
         return $this->createdAt;
-    }
-
-    public function setCreatedAt(DateTimeImmutable $createdAt): User
-    {
-        $this->createdAt = $createdAt;
-        return $this;
     }
 
     public function setPassword(string $password): self
