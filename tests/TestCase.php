@@ -22,11 +22,9 @@ class TestCase extends WebTestCase
 
     public function getEntityManager(): EntityManager
     {
-        $kernel = self::bootKernel();
-
         try {
             /** @var EntityManager|null $entityManager */
-            $entityManager = $kernel->getContainer()
+            $entityManager = self::getContainer()
                 ->get(EntityManager::class);
             if ($entityManager === null) {
                 throw new LogicException('You have requested a non-existent service #' . EntityManager::class . ' ');
